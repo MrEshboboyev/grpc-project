@@ -4,18 +4,49 @@ option csharp_namespace = "grpc_project";
 
 package greet;
 
+import "google/protobuf/timestamp.proto";
+
 // The greeting service definition.
 service Greeter {
-  // Sends a greeting
+  // Sends a greeting - Unary RPC
   rpc SayHello (HelloRequest) returns (HelloReply);
+  
+  // Server Streaming RPC - sends multiple greetings
+  rpc SayHelloStream (HelloRequest) returns (stream HelloReply);
+  
+  // Client Streaming RPC - receives multiple names and sends one greeting
+  rpc SayHelloClientStream (stream HelloRequest) returns (HelloReply);
+  
+  // Bidirectional Streaming RPC - both client and server stream
+  rpc SayHelloBidirectionalStream (stream HelloRequest) returns (stream HelloReply);
+  
+  // Get user information
+  rpc GetUser (UserRequest) returns (UserResponse);
 }
 
 // The request message containing the user's name.
 message HelloRequest {
   string name = 1;
+  int32 count = 2; // Number of times to greet
 }
 
 // The response message containing the greetings.
 message HelloReply {
   string message = 1;
+  google.protobuf.Timestamp timestamp = 2;
+}
+
+// Request for user information
+message UserRequest {
+  string user_id = 1;
+}
+
+// Response with user information
+message UserResponse {
+  string user_id = 1;
+  string name = 2;
+  string email = 3;
+  int32 age = 4;
+  repeated string hobbies = 5;
+  google.protobuf.Timestamp created_at = 6;
 }
