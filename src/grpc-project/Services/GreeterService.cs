@@ -2,7 +2,7 @@ using Grpc.Core;
 using grpc_project;
 using Google.Protobuf.WellKnownTypes;
 
-namespace grpc_project.Services;
+namespace Services;
 
 public class GreeterService : Greeter.GreeterBase
 {

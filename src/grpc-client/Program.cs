@@ -1,8 +1,8 @@
-using System.Threading.Channels;
 using Grpc.Core;
-using Grpc.Net.Client;
 using Grpc.Health.V1;
+using Grpc.Net.Client;
 using grpc_project;
+using System.Threading.Channels;
 
 // Create a channel to the gRPC server
 // Use the HTTP endpoint that the server is listening on

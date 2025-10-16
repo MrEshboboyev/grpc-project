@@ -1,7 +1,7 @@
 using Grpc.Core;
 using Grpc.Health.V1;
 
-namespace grpc_project.Services;
+namespace Services;
 
 public class HealthService : Health.HealthBase
 {

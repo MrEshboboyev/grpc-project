@@ -1,5 +1,4 @@
-using grpc_project.Services;
-using Grpc.Health.V1;
+using Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
